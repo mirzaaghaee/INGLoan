@@ -26,7 +26,7 @@ Please provide the instructions in a README.md Please provide the solution in a 
 
 
 
-**Server:** SpringBoot, H2 as Repository![img.png](img.png)
+**Server:** SpringBoot, H2 as Repository
 
 
 ## Used By
