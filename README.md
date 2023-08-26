@@ -21,7 +21,7 @@ Please provide the instructions in a README.md Please provide the solution in a 
 
 
 ## System Design
-loan.png
+![Logo](loan.png)
 ## Tech Stack
 
 
