@@ -22,9 +22,6 @@ Please provide the instructions in a README.md Please provide the solution in a 
 
 ## System Design
 ![Logo](loan.png)
-## Tech Stack
-
-
 
 **Server:** SpringBoot, H2 as Repository
 
