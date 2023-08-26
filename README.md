@@ -21,12 +21,9 @@ Please provide the instructions in a README.md Please provide the solution in a 
 
 
 ## System Design
-loan.png
-## Tech Stack
+![Logo](loan.png)
 
-
-
-**Server:** SpringBoot, H2 as Repository![img.png](img.png)
+**Server:** SpringBoot, H2 as Repository
 
 
 ## Used By
