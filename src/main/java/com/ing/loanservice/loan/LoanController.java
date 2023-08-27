@@ -32,10 +32,11 @@ public class LoanController {
     @GetMapping(value = "/{customerId}/sum",
             consumes = "application/json",
             produces = "application/json")
-    public Long loanRegisteration(
-            @PathVariable("customerId") String customerId) {
-        System.out.println(customerId);
-        return 1L;
+    public ResponseEntity<Long> loanRegisteration(
+            @PathVariable("customerId") Long customerId) {
+        return new ResponseEntity<>(
+                loanService.getSumOfloansByCustomerId(customerId)
+                , HttpStatus.CREATED);
     }
 
 }

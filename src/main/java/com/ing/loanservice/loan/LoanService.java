@@ -41,4 +41,9 @@ public class LoanService {
         referenceNo = String.format("%-16s", referenceNo).replace(' ', '0');
         return referenceNo;
     }
+
+    public Long getSumOfloansByCustomerId(Long customerId) {
+        return 1L;
+
+    }
 }
