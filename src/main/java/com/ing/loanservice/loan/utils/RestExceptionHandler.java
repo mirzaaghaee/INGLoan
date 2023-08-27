@@ -12,16 +12,13 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.time.LocalDateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.server.MethodNotAllowedException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
@@ -58,8 +55,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ResponseBody
     @ExceptionHandler(MethodNotAllowedException.class)
     @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
-    ResponseEntity<Object> handelingOtherHttpMethods(MethodNotAllowedException ex){
-        logError(ex.getMessage());
+    ResponseEntity<Object> handlingOtherHttpMethods(MethodNotAllowedException ex){
         logError(ex.getMessage());
         ApiError apiError = new ApiError(HttpStatus.METHOD_NOT_ALLOWED,METHOD_NOT_SUPPORTED,ex);
         return buildResponseEntity(apiError);
