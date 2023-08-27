@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
+
 @Entity
 @JsonIgnoreProperties(allowGetters = true)
 @Getter
@@ -32,6 +32,11 @@ public class Loan {
         this.referenceNo = referenceNo;
         this.registrationTimeStamp = registrationTimeStamp;
     }
+
+    public Loan() {
+
+    }
+
 
     @Override
     public String toString() {

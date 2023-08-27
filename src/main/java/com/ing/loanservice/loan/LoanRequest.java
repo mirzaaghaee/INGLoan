@@ -12,18 +12,20 @@ public class LoanRequest {
     private BigDecimal amount;
     private Integer customerId;
     private String customerFullName;
-    private String referenceNo;
 
-    // Getters and setters
 
+    public LoanRequest(BigDecimal amount, Integer customerId, String customerFullName) {
+        this.amount = amount;
+        this.customerId = customerId;
+        this.customerFullName = customerFullName;
+    }
 
     @Override
     public String toString() {
-        return "LoanDTO{" +
+        return "LoanRequest{" +
                 "amount=" + amount +
                 ", customerId=" + customerId +
                 ", customerFullName='" + customerFullName + '\'' +
-                ", referenceNo='" + referenceNo + '\'' +
                 '}';
     }
 }

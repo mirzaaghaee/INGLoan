@@ -3,6 +3,7 @@ package com.ing.loanservice.loan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -18,11 +19,15 @@ public class LoanService {
     }
 
     public Loan registerNewLoan(LoanRequest loanRequest) {
-        Loan loan=getLoanFromDto(loanRequest);
+        Loan loan=createLoanFromRequest(loanRequest);
         return loanRepository.save(loan);
     }
+    public BigDecimal getSumOfCustomerLoans(Long customerId) {
+        return loanRepository.getCustomerLoanSumByCustomerId(customerId);
+    }
 
-    private Loan getLoanFromDto(LoanRequest loanRequest) {
+
+    private Loan createLoanFromRequest(LoanRequest loanRequest) {
         return new Loan(
                 loanRequest.getAmount(),
                 loanRequest.getCustomerId(),
@@ -42,8 +47,4 @@ public class LoanService {
         return referenceNo;
     }
 
-    public Long getSumOfloansByCustomerId(Long customerId) {
-        return 1L;
-
-    }
 }

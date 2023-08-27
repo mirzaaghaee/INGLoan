@@ -1,6 +1,4 @@
 
-CREATE DATABASE IF NOT EXISTS loan;
-use loan;
 create table if not exists loan
 (
     id                      bigint         not null
