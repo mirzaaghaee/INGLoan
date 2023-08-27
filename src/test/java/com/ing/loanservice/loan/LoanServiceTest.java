@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.cache.CacheManager;
+
 import java.math.BigDecimal;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -14,12 +16,15 @@ public class LoanServiceTest {
     @Mock
     private LoanRepository loanRepository;
 
+    @Mock
+    private CacheManager cacheManager;
+
     private LoanService loanService;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        loanService = new LoanService(loanRepository);
+        loanService = new LoanService(loanRepository,cacheManager);
     }
 
     @Test

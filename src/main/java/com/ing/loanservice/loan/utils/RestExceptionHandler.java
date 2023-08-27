@@ -24,7 +24,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
-    private static final Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
+    private static final Logger log =
+            LoggerFactory.getLogger(RestExceptionHandler.class);
     private final String LOAN_NOT_ACCEPTED="Loan is not accepted";
     private final String CUSTOMER_NOT_VALID="Customer is Not found";
     private final String METHOD_NOT_SUPPORTED="Http method is not suppurted";
