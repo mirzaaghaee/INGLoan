@@ -52,29 +52,20 @@ public class LoanService {
 
 
     public BigDecimal getSumOfCustomerLoans(Long customerId) {
-
         //Check if sum exist in cache
         Optional<BigDecimal> sum=checkCacheForSum(customerId);
         if (sum.isPresent()){
             log.info(
-                    "Sum is Returned For CustomerId:"
-                            +customerId+" From Chache");
-
+                    String.format("Sum is Returned For CustomerId:%s From Chache",customerId));
             return sum.get();
         }
-
         //Update Cache Value
         BigDecimal customerLoansSum= loanRepository.getCustomerLoanSumByCustomerId(customerId);
         ofNullable(cacheManager.getCache(CACHE_NAME)).ifPresent(
                 cache ->cache.put(customerId,customerLoansSum));
-        log.info(
-                "Cache is Updated For CustomerId:"
-                        +customerId);
-
+        log.info(String.format("Cache is Updated For CustomerId:%s",customerId);
         return customerLoansSum;
     }
-
-
     private Loan createLoanFromRequest(LoanRequest loanRequest) {
         return new Loan(
                 loanRequest.getAmount(),
