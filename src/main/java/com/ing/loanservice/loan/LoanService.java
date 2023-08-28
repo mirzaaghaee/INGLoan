@@ -63,7 +63,7 @@ public class LoanService {
         BigDecimal customerLoansSum= loanRepository.getCustomerLoanSumByCustomerId(customerId);
         ofNullable(cacheManager.getCache(CACHE_NAME)).ifPresent(
                 cache ->cache.put(customerId,customerLoansSum));
-        log.info(String.format("Cache is Updated For CustomerId:%s",customerId);
+        log.info(String.format("Cache is Updated For CustomerId:%s",customerId));
         return customerLoansSum;
     }
     private Loan createLoanFromRequest(LoanRequest loanRequest) {

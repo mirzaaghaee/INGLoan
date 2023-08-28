@@ -17,13 +17,31 @@ A web service that provides the operations mentioned above.
 The operations should be provided via a REST API.
 The service should be able to run locally. 
 
-Please provide the instructions in a README.md Please provide the solution in a single self-sufficient zip file to us.
+
 
 
 ## System Design
-![Logo](loan.png)
+loan.png
 
-**Server:** SpringBoot, H2 as Repository
++ Design Decesions and Assumptions:
+
+        1- Form simplicity Customer-Service is not implemented as in       
+        produciton-ready service CustomerId must validate with this service.
+
+        2- It would be better to define an Abstract Loan Calss because there will be
+        lots of diffrent Loans now and also probable new ones in future.
+        
+        3- For tunning performance a local cache has beed designed and leveraged but
+        again for a production-ready service it's bettr to use distributed 
+        Cache Service like Reis.
+## Tech Stack
+
+
+
+**Server:** 
+SpringBoot
+Local MySql 
+H2 
 
 
 ## Used By
@@ -36,19 +54,10 @@ This project is used by the following companies:
 
 ## Authors
 
-- [@Mirzaaghaee](https://www.github.com/Mirzaaghaee)
-
-
+- [@Mirzaaghaee](https://github.com/mirzaaghaee/INGLoan)
 
 
 ![Logo](https://logowik.com/content/uploads/images/614_ingbank.jpg)
-
-
-## Roadmap
-
-- Additional browser support
-
-- Add more integrations
 
 
 ## Badges
@@ -59,11 +68,34 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
 
-\
-]\
-]\
-\\\\\\\\\\\
-## Demo
 
-Insert gif or link to demo
+## API Reference
 
+#### Register New Loan Request
+
+curl --location 'http://localhost:8787/api/v1/loan-provider/loan' \
+--header 'Content-Type: application/json' \
+--data '{
+  "amount": 12000.20,
+  "customerId": 12345,
+  "customerFullName": "John Doe"
+  
+}'
+
+#### Get Sum Of Customer Loan
+
+curl --location 'http://localhost:8787/api/v1/loan-provider/12345/sum' \
+--header 'Content-Type: application/json'
+
+## Installation
+
+1- Config MySql in Properties File of Project:
+    spring.datasource.username=user
+    spring.datasource.password=password
+
+2-Run resources:/init-db/initial-schema.sql
+
+Caution:
+
+    In production-Ready should environment these config are in ENV var and also
+    running change script should handle by a proper Tool like liquibase.
