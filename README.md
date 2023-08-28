@@ -21,7 +21,7 @@ The service should be able to run locally.
 
 
 ## System Design
-loan.png
+./loan.png
 
 + Design Decesions and Assumptions:
 
