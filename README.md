@@ -21,7 +21,7 @@ The service should be able to run locally.
 
 
 ## System Design
-(https://github.com/mirzaaghaee/INGLoan/blob/master/loan.png)
+![Logo](https://github.com/mirzaaghaee/INGLoan/blob/master/loan.png)
 
 + Design Decesions and Assumptions:
 
